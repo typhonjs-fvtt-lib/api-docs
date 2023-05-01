@@ -8,6 +8,7 @@
     "lib": ["DOM", "ES2022"]
   },
   "include" : [
+    "./src/globals-fvtt.d.ts",
     "./.doc-gen/**/*.d.ts"
   ]
 }

@@ -5,11 +5,24 @@ import { getFileList }  from '@typhonjs-utils/file-util';
 
 import {
    Application,
+   Logger,
+   LogLevel,
    TypeDocReader,
    TSConfigReader }     from 'typedoc';
 
 // node_modules/@typhonjs-fvtt/runtime/package.json
 // node_modules/@typhonjs-fvtt/svelte-standard/package.json
+
+/**
+ * Create a custom Typedoc logger.
+ */
+class CustomLogger extends Logger
+{
+   log(message, level)
+   {
+      console.log(`${level}: ${message}`);
+   }
+}
 
 fs.emptyDirSync('./.doc-gen');
 
@@ -81,6 +94,10 @@ async function typedoc()
 
    // Create a new TypeDoc application instance
    const app = new Application();
+
+   // Set the custom logger
+   app.logger = new CustomLogger();
+   app.logger.level = LogLevel.Verbose;
 
    // Set TypeDoc options
    app.options.addReader(new TypeDocReader());
