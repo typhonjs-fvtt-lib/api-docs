@@ -1,0 +1,32 @@
+{
+  "name": "@typhonjs-fvtt/trl-documentation",
+  "version": "0.0.0",
+  "description": "Provides comprehensive documentation for the TyphonJS Runtime Library (Foundry VTT edition).",
+  "license": "MPL-2.0",
+  "private": true,
+  "type": "module",
+  "author": "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)",
+  "contributors": [
+    "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
+  ],
+  "sideEffects": false,
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@typhonjs-config/eslint-config": "^0.6.0",
+    "@typhonjs-fvtt/runtime": "^0.0.22",
+    "@typhonjs-fvtt/svelte-standard": "^0.0.23",
+    "@typhonjs-utils/file-util" : "^0.0.7",
+    "eslint": "^8",
+    "fs-extra" : "^11",
+    "svelte": "^3.58.0",
+    "typedoc": "^0.23",
+    "typedoc-theme-yaf": "^0.0.4",
+    "typescript": "^5.0.4"
+  },
+  "browserslist": [">5%", "not IE 11"],
+  "scripts": {
+    "build-docs": "node src/generate.js",
+    "eslint": "eslint ."
+  }
+}
