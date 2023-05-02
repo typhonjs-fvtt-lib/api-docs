@@ -14,26 +14,39 @@ export function processDTS()
 }
 
 /**
+ * Processes all DTS files while copying from the original library to `.doc-gen`. There are two processing steps:
+ *
+ * 1. If there is a matching file in `./prepend/<export library name>/index.js` that file is prepended to the DTS file.
+ *
+ * 2. All import references to `@typhonjs-fvtt/runtime`, `@typhonjs-fvtt/standard`, and `svelte` are replaced with
+ *    local `imports` from `package.json`. This links all copied declarations together locally and will link symbols
+ *    across packages.
+ *
  * Prepends data from `prependPath` to source data writing to `destPath`.
  *
  * @param {string}   srcFilepath - Source file path.
  *
  * @param {string}   destFilepath - Destination file path.
  *
- * @param {string}   prependFilepath - Prepend file path.
+ * @param {string}   libName - The name of the subpath export.
  */
-function prependFile(srcFilepath, destFilepath, prependFilepath)
+function processDTSFile(srcFilepath, destFilepath, libName)
 {
-   const srcData = fs.readFileSync(srcFilepath, 'utf-8');
+   let srcData = fs.readFileSync(srcFilepath, 'utf-8');
 
-   let prependData = '';
-
+   // Prepend header data from local `./prepend` folder.
+   const prependFilepath = `./prepend/${libName}.js`;
    if (fs.pathExistsSync(prependFilepath))
    {
-      prependData = `${fs.readFileSync(prependFilepath, 'utf-8')}\n\n`;
+      srcData = `${fs.readFileSync(prependFilepath, 'utf-8')}\n\n${srcData}`;
    }
 
-   fs.writeFileSync(destFilepath, `${prependData}${srcData}`, 'utf-8');
+   // Substitute imported declarations to local `imports` from `package.json`.
+   srcData = srcData.replaceAll(`from '@typhonjs-fvtt/runtime/`, `from '#runtime/`);
+   srcData = srcData.replaceAll(`from '@typhonjs-fvtt/svelte-standard/`, `from '#standard/`);
+   srcData = srcData.replaceAll(`from 'svelte`, `from '#svelte`);
+
+   fs.writeFileSync(destFilepath, srcData, 'utf-8');
 }
 
 /**
@@ -58,7 +71,7 @@ function processPackageRuntime()
       './svelte/application',
       // './svelte/application/dialog',   // Need to better define types.
       // './svelte/application/legacy'    // Need to better define types.
-   ]
+   ];
 
    for (const [key, value] of Object.entries(packageJSON.exports))
    {
@@ -77,7 +90,7 @@ function processPackageRuntime()
 
       fs.ensureDirSync(destDirPath);
 
-      prependFile(srcFilePath, destFilePath, `./prepend/${libName}.js`);
+      processDTSFile(srcFilePath, destFilePath, libName);
    }
 }
 
@@ -107,7 +120,7 @@ function processPackageStandard()
 
       fs.ensureDirSync(destDirPath);
 
-      prependFile(srcFilePath, destFilePath, `./prepend/${libName}.js`);
+      processDTSFile(srcFilePath, destFilePath, libName);
    }
 }
 
@@ -138,11 +151,11 @@ function processPackageSvelte()
       const libName = key === '.' ? 'svelte' : `svelte/${key.substring(2)}`;
 
       const srcFilePath = upath.resolve(pathNPM, value.types);
-      const destDirPath = upath.resolve('./.doc-gen/external', libName);
+      const destDirPath = upath.resolve('./.doc-gen', libName);
       const destFilePath = `${destDirPath}/index.d.ts`;
 
       fs.ensureDirSync(destDirPath);
 
-      prependFile(srcFilePath, destFilePath, `./prepend/${libName}.js`);
+      processDTSFile(srcFilePath, destFilePath, libName);
    }
 }
