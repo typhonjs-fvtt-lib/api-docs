@@ -10,6 +10,13 @@
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
   "sideEffects": false,
+  "imports": {
+     "#runtime/*": "./.doc-gen/runtime/*/index.d.ts",
+     "#standard/*": "./.doc-gen/standard/*/index.d.ts",
+     "#svelte/internal": "svelte/internal",
+     "#svelte/*": "./.doc-gen/svelte/*/index.d.ts",
+     "#svelte": "./.doc-gen/svelte/index.d.ts"
+  },
   "dependencies": {
   },
   "devDependencies": {
