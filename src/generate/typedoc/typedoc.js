@@ -20,7 +20,7 @@ import {
  *
  * @returns {Promise<void>}
  */
-export async function typedoc(logLevel = LogLevel.Info)
+export async function typedoc(logLevel = LogLevel.Verbose)
 {
    const entryPoints = await getFileList({ dir: './.doc-gen' });
 
@@ -86,6 +86,15 @@ export async function typedoc(logLevel = LogLevel.Info)
 
       theme: 'yaf'
    });
+
+   // app.converter.addUnknownSymbolResolver((declaration) =>
+   // {
+   //    const name = declaration.symbolReference?.path?.map((path) => path.path).join(".");
+   //
+   //    if (!name) { return; }
+   //
+   //    console.log(`!!! Name: `, name);
+   // });
 
    // Convert TypeScript sources to a TypeDoc ProjectReflection
    const project = app.convert();
