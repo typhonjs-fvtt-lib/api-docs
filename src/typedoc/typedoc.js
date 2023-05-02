@@ -31,7 +31,7 @@ export async function typedoc(logLevel = LogLevel.Info)
    app.options.addReader(new TSConfigReader());
 
    app.bootstrap({
-      name: 'TyphonJS Runtime Library',
+      name: 'TyphonJS Runtime Library (FVTT)',
 
       // Provide a link for the title / name.
       // TODO: not supported by typedoc-theme-yaf.
