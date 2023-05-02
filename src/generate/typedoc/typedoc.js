@@ -76,7 +76,10 @@ export async function typedoc(logLevel = LogLevel.Info)
       // Output directory for the generated documentation
       out: 'docs',
 
-      plugin: ['typedoc-theme-yaf'],
+      plugin: [
+         'typedoc-plugin-mdn-links',
+         'typedoc-theme-yaf'
+      ],
 
       // Boosts relevance for classes and function in search.
       searchGroupBoosts,
