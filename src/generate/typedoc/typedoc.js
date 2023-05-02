@@ -78,6 +78,7 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       out: 'docs',
 
       plugin: [
+         'typedoc-plugin-coverage',
          'typedoc-plugin-mdn-links',
          'typedoc-theme-yaf'
       ],
