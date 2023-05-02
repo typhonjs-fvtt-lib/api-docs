@@ -20,13 +20,17 @@
     "eslint": "^8",
     "fs-extra" : "^11",
     "svelte": "^3.58.0",
+    "sirv": "^2",
+    "polka": "^0.5.2",
     "typedoc": "^0.23",
     "typedoc-theme-yaf": "^0.0.4",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "upath": "^2.0.1"
   },
   "browserslist": [">5%", "not IE 11"],
   "scripts": {
-    "build-docs": "node src/generate.js",
+    "build-docs": "node src/generate/generate.js",
+    "serve": "node src/serve/serve.js",
     "eslint": "eslint .",
     "tsc": "tsc --noEmit"
   }
