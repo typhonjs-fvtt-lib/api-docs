@@ -1,5 +1,3 @@
-import { getFileList }     from '@typhonjs-utils/file-util';
-
 import {
    Application,
    Logger,
@@ -7,11 +5,12 @@ import {
    TSConfigReader }        from 'typedoc';
 
 import {
+   entryPoints,
    externalSymbolLinkMappings,
    // groupOrder,
    kindSortOrder,
    navigationLinks,
-   searchGroupBoosts }  from './options/index.js';
+   searchGroupBoosts }     from './options/index.js';
 
 /**
  * Generate docs from TS declarations in `.doc-gen`.
@@ -22,8 +21,6 @@ import {
  */
 export async function typedoc(logLevel = LogLevel.Verbose)
 {
-   const entryPoints = await getFileList({ dir: './.doc-gen' });
-
    // Create a new TypeDoc application instance
    const app = new Application();
 
@@ -46,6 +43,7 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       disableSources: true,
 
       entryPoints,
+      entryPointStrategy: 'expand',
 
       // Excludes any private members including the `#private;` member added by Typescript.
       excludePrivate: true,
