@@ -1,6 +1,6 @@
 {
   "name": "@typhonjs-fvtt/trl-documentation",
-  "version": "0.0.0",
+  "version": "2023.5.1",
   "description": "Provides comprehensive documentation for the TyphonJS Runtime Library (Foundry VTT edition).",
   "license": "MPL-2.0",
   "private": true,
@@ -27,6 +27,7 @@
   "browserslist": [">5%", "not IE 11"],
   "scripts": {
     "build-docs": "node src/generate.js",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "tsc": "tsc --noEmit"
   }
 }
