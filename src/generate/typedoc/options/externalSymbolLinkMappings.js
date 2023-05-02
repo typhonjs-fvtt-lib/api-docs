@@ -8,4 +8,4 @@ export const externalSymbolLinkMappings = {
       "Application.maximize": "",
       "Application.minimize": ""
    }
-}
+};

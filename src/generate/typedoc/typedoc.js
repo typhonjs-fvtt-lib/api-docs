@@ -8,7 +8,7 @@ import {
 
 import {
    externalSymbolLinkMappings,
-   groupOrder,
+   // groupOrder,
    kindSortOrder,
    navigationLinks,
    searchGroupBoosts }  from './options/index.js';

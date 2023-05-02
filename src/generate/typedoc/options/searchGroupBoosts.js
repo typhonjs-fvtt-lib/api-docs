@@ -6,4 +6,4 @@
 export const searchGroupBoosts = {
    Classes: 1.5,
    Functions: 1.5
-}
+};

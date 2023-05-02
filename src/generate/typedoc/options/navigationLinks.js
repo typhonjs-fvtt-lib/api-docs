@@ -6,4 +6,4 @@
  */
 export const navigationLinks = {
    'Demo Module - Essential Svelte ESM': 'https://github.com/typhonjs-fvtt-demo/essential-svelte-esm'
-}
+};
