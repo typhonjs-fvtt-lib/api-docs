@@ -47,6 +47,9 @@ export async function typedoc(logLevel = LogLevel.Verbose)
 
       entryPoints,
 
+      // Excludes any private members including the `#private;` member added by Typescript.
+      excludePrivate: true,
+
       // For external API linking for @link tags.
       externalSymbolLinkMappings,
 
