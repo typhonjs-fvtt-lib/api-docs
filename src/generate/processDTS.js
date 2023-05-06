@@ -62,8 +62,7 @@ function processPackageRuntime()
       './package.json',
       './rollup',
       './color/colord',             // Needs bundled types.
-      './color/colord/plugins/*',   // Test eventually if namespace aspects work in combination.
-      './plugin/manager'            // Needs bundled types.
+      './color/colord/plugins/*'    // Test eventually if namespace aspects work in combination.
    ];
 
    // These exports keys have types, but not defined in exports.
