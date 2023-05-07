@@ -17,14 +17,16 @@
      "#svelte/*": "./.doc-gen/svelte/*/index.d.ts",
      "#svelte": "./.doc-gen/svelte/index.d.ts"
   },
-  "dependencies": {
+  "exports": {
+    "./plugin/foundry-links": {
+      "types": "./types/index-plugin.d.ts",
+      "require": "./dist/plugin/foundry-links/index.cjs"
+    }
   },
   "devDependencies": {
-    "@typhonjs-config/eslint-config": "^0.6.0",
+    "@typhonjs-build-test/node": "^0.0.9",
     "@typhonjs-fvtt/runtime": "^0.0.22",
     "@typhonjs-fvtt/svelte-standard": "^0.0.23",
-    "eslint": "^8",
-    "fs-extra" : "^11",
     "svelte": "^3.58.0",
     "sirv": "^2",
     "polka": "^0.5.2",
@@ -38,8 +40,8 @@
   "browserslist": [">5%", "not IE 11"],
   "scripts": {
     "build-docs": "node src/generate/generate.js",
+    "build-plugin": "rollup -c",
     "serve": "node src/serve/serve.js",
-    "eslint": "eslint .",
-    "tsc": "tsc --noEmit"
+    "eslint": "eslint ."
   }
 }
