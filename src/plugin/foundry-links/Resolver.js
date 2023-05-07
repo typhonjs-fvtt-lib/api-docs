@@ -4,6 +4,9 @@ import { resolvers }    from './resolvers/index.js';
 
 export class Resolver
 {
+   /** @type {[]} */
+   static #emptyArray = [];
+
    /** @type {Application} */
    #app;
 
@@ -45,9 +48,15 @@ export class Resolver
     */
    #handleUnknownSymbol(ref)
    {
-      if (ref.moduleSource === 'typescript' || (!ref.moduleSource && ref.resolutionStart === "global"))
+      if (ref.moduleSource === 'typescript' || (!ref.moduleSource && ref.resolutionStart === 'global'))
       {
-         const name = ref.symbolReference?.path?.map((path) => path.path).join('.');
+         const symbolPath = ref.symbolReference?.path ?? Resolver.#emptyArray;
+
+         // Only handle symbols that start with `globalThis`. All TRL source code uses `globalThis` to reference
+         // the Foundry API.
+         if (symbolPath.length < 2 || symbolPath?.[0]?.path !== 'global') { return; }
+
+         const name = symbolPath?.map((path) => path.path).join('.');
 
          if (!name) { return; }
 
@@ -73,11 +82,3 @@ export class Resolver
       }
    }
 }
-
-/**
- * @typedef {(string) => string | void} ResolverFunction
- */
-
-/**
- * @typedef {import('typedoc').ExternalResolveResult | string | void} ResolveResult
- */

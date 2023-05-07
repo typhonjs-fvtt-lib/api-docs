@@ -3,7 +3,7 @@ import { globalNamespace } from './globalNamespace.js';
 /**
  * An array of all resolvers.
  *
- * @type {import('..').ResolverFunction[]}
+ * @type {(() => string | void)[]}
  */
 export const resolvers = [
    globalNamespace
