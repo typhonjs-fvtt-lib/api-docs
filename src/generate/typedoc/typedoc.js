@@ -78,6 +78,7 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       out: 'docs',
 
       plugin: [
+         './dist/plugin/foundry-links/index.cjs',
          'typedoc-plugin-coverage',
          'typedoc-plugin-mdn-links',
          'typedoc-theme-yaf'
@@ -88,15 +89,6 @@ export async function typedoc(logLevel = LogLevel.Verbose)
 
       theme: 'yaf'
    });
-
-   // app.converter.addUnknownSymbolResolver((declaration) =>
-   // {
-   //    const name = declaration.symbolReference?.path?.map((path) => path.path).join(".");
-   //
-   //    if (!name) { return; }
-   //
-   //    console.log(`!!! Name: `, name);
-   // });
 
    // Convert TypeScript sources to a TypeDoc ProjectReflection
    const project = app.convert();
