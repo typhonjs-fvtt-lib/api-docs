@@ -7,7 +7,7 @@ import {
 import {
    entryPoints,
    externalSymbolLinkMappings,
-   // groupOrder,
+   groupOrder,
    kindSortOrder,
    navigationLinks,
    searchGroupBoosts }     from './options/index.js';
@@ -27,20 +27,21 @@ export async function typedoc(logLevel = LogLevel.Verbose)
    // Set TypeDoc options
    app.options.addReader(new TSConfigReader());
 
-   app.bootstrap({
+   await app.bootstrapWithPlugins({
       name: 'TyphonJS Runtime Library (FVTT)',
 
       // Provide a link for the title / name.
       // TODO: not supported by typedoc-theme-yaf.
       // titleLink: '',
 
-      // Provides custom CSS.
-      // TODO: typedoc-theme-yaf doesn't link it; this needs to be added: <link rel="stylesheet" href="../assets/custom.css">
-      customCss: './styles/custom.css',
-
       // Disables the source links as they reference the d.ts files.
-      // TODO: typedoc-theme-yaf does not completely remove text as "Defined in:" still displays.
       disableSources: true,
+
+      // Sets favicon.
+      dmtFavicon: './assets/icons/favicon.ico',
+
+      // Removes the default module page including from navigation & breadcrumbs
+      dmtRemoveDefaultModule: true,
 
       entryPoints,
       entryPointStrategy: 'expand',
@@ -52,42 +53,43 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       externalSymbolLinkMappings,
 
       // For Typedoc v0.24+; sorts the main index for a namespace; not the sidebar tab.
-      // TODO: Enable when switching to Typedoc 0.24+
-      // groupOrder,
+      groupOrder,
 
       // Sorts the sidebar symbol types.
-      // TODO: not supported by typedoc-theme-yaf.
       kindSortOrder,
 
       // Hide the documentation generator footer.
-      // TODO: not supported by typedoc-theme-yaf.
       hideGenerator: true,
-
-      // Sets the custom logger for Typedoc 0.23; unnecessary for 0.24+
-      // TODO: Remove when switching to Typedoc `0.24+`.
-      logger: new CustomLogger(logLevel),
 
       // Sets log level.
       logLevel,
 
+      // New option in 0.24.8 required to render full navigation tree.
+      navigation: {
+         fullTree: true
+      },
+
       // Provides links for the top nav bar
-      // TODO: not supported by typedoc-theme-yaf.
       navigationLinks,
 
       // Output directory for the generated documentation
       out: 'docs',
 
       plugin: [
+         'S:\\program\\Javascript\\projects\\TyphonJS\\typhonjs-typedoc\\typedoc-theme-dmt\\dist\\index.js',
          './dist/plugin/foundry-links/index.cjs',
-         'typedoc-plugin-coverage',
-         'typedoc-plugin-mdn-links',
-         'typedoc-theme-yaf'
+         // 'typedoc-plugin-coverage'
       ],
 
       // Boosts relevance for classes and function in search.
       searchGroupBoosts,
 
-      theme: 'yaf'
+      theme: 'default-modern',
+
+      // Only show the `inherited` filter.
+      visibilityFilters: {
+         inherited: true,
+      }
    });
 
    // Convert TypeScript sources to a TypeDoc ProjectReflection
@@ -96,7 +98,7 @@ export async function typedoc(logLevel = LogLevel.Verbose)
    // Generate the documentation
    if (project)
    {
-      return app.generateDocs(project, 'docs');
+      await app.generateDocs(project, 'docs');
    }
    else
    {
