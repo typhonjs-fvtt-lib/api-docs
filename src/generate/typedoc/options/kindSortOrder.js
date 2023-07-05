@@ -4,15 +4,15 @@
  * @type {string[]}
  */
 export const kindSortOrder = [
-   'Reference',
    'Project',
    'Module',
    'Class',
+   'Interface',
    'Function',
    'Namespace',
+   'Reference',
    'Enum',
    'EnumMember',
-   'Interface',
    'TypeAlias',
    'Constructor',
    'Property',

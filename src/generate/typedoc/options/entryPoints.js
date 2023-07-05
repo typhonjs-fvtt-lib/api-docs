@@ -4,7 +4,7 @@
  * @type {string[]}
  */
 export const entryPoints = [
-   './.doc-gen/runtime',
-   './.doc-gen/standard',
+   './.doc-gen/#runtime',
+   './.doc-gen/#standard',
    './.doc-gen/svelte'
 ];
