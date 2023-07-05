@@ -1,5 +1,5 @@
-import fs               from 'fs-extra';
-import upath            from 'upath';
+import fs      from 'fs-extra';
+import upath   from 'upath';
 
 /**
  * Processes TRL runtime & standard libraries along with the Svelte library moving DTS files to `.doc-gen`.
@@ -128,33 +128,49 @@ function processPackageStandard()
  */
 function processPackageSvelte()
 {
-   const pathNPM = './node_modules/svelte';
+   const svelteTypes = fs.readFileSync('./node_modules/svelte/types/index.d.ts', 'utf-8');
 
-   const packageJSON = JSON.parse(fs.readFileSync(`${pathNPM}/package.json`, 'utf-8'));
+   // const regex = /declare module '([^']*)' \{([^}]*)}/gs;
+   const regex = /declare module '([^']*)' \{((?:[^d]|d(?!eclare module))+)}/gs;
 
-   const ignoreKeys = [
-      './package.json',
-      './compiler',
-      './elements',
-      './internal',
-      './motion', // Motion needs to be bundled as it references local d.ts files.
-      './register',
-      './ssr'
-   ];
+   const modules = new Set([
+      'svelte',
+      'svelte/action',
+      'svelte/animate',
+      'svelte/easing',
+      'svelte/motion',
+      'svelte/store',
+      'svelte/transition'
+   ]);
 
-   for (const [key, value] of Object.entries(packageJSON.exports))
+   let match;
+
+   while ((match = regex.exec(svelteTypes)) !== null)
    {
-      if (ignoreKeys.includes(key)) { continue; }
-      if (typeof value.types !== 'string') { continue; }
+      const libName = match[1];
+      let libTypes = match[2];
 
-      const libName = key === '.' ? 'svelte' : `svelte/${key.substring(2)}`;
+      if (modules.has(libName))
+      {
+         // Special handling for 'svelte' module.
+         if (libName === 'svelte')
+         {
+            libTypes = libTypes.replace('class SvelteComponent_1', 'declare class SvelteComponent_1');
+         }
 
-      const srcFilePath = upath.resolve(pathNPM, value.types);
-      const destDirPath = upath.resolve('./.doc-gen', libName);
-      const destFilePath = `${destDirPath}/index.d.ts`;
+         const destDirPath = upath.resolve('./.doc-gen', libName);
+         const destFilePath = `${destDirPath}/index.d.ts`;
 
-      fs.ensureDirSync(destDirPath);
+         fs.ensureDirSync(destDirPath);
 
-      processDTSFile(srcFilePath, destFilePath, libName);
+         // Prepend header data from local `./prepend` folder.
+         const prependFilepath = `./prepend/${libName}.js`;
+         if (fs.pathExistsSync(prependFilepath))
+         {
+            libTypes = `${fs.readFileSync(prependFilepath, 'utf-8')}\n\n${libTypes}`;
+         }
+
+         fs.writeFileSync(destFilePath, libTypes, 'utf-8');
+      }
    }
 }
