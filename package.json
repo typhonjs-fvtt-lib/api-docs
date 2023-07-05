@@ -11,8 +11,8 @@
   ],
   "sideEffects": false,
   "imports": {
-     "#runtime/*": "./.doc-gen/runtime/*/index.d.ts",
-     "#standard/*": "./.doc-gen/standard/*/index.d.ts",
+     "#runtime/*": "./.doc-gen/#runtime/*/index.d.ts",
+     "#standard/*": "./.doc-gen/#standard/*/index.d.ts",
      "#svelte/internal": "svelte/internal",
      "#svelte/*": "./.doc-gen/svelte/*/index.d.ts",
      "#svelte": "./.doc-gen/svelte/index.d.ts"
@@ -24,17 +24,19 @@
     }
   },
   "devDependencies": {
+    "@types/node": "^20.3.3",
     "@typhonjs-build-test/node": "^0.0.9",
     "@typhonjs-fvtt/runtime": "^0.0.22",
     "@typhonjs-fvtt/svelte-standard": "^0.0.23",
-    "svelte": "^3.58.0",
+    "@typhonjs-typedoc/typedoc-theme-dmt": "github:typhonjs-typedoc/typedoc-theme-dmt",
+    "svelte": "^4.0.4",
+    "svelte-preprocess" : "^5.0.4",
+    "svelte-tag": "^1.0.2",
     "sirv": "^2",
     "polka": "^0.5.2",
-    "typedoc": "^0.23",
+    "typedoc": "^0.24.8",
     "typedoc-plugin-coverage": "^2.1.0",
-    "typedoc-plugin-mdn-links": "^3.0.3",
-    "typedoc-theme-yaf": "^0.0.4",
-    "typescript": "^5.0.4",
+    "typescript": "^5.1.6",
     "upath": "^2.0.1"
   },
   "browserslist": [">5%", "not IE 11"],
