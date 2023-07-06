@@ -9,6 +9,7 @@ export function processDTS()
    fs.emptyDirSync('./.doc-gen');
 
    processPackageRuntime();
+   processPackageRuntimeColord();
    processPackageStandard();
    processPackageSvelte();
 }
@@ -91,9 +92,10 @@ function processPackageRuntime()
 
       processDTSFile(srcFilePath, destFilePath, libName);
    }
+}
 
-   // Process colord separately --------------------------------------------------------------------------------------
-
+function processPackageRuntimeColord()
+{
    const libName = '#runtime/color/colord';
    const srcFilePath = './node_modules/@typhonjs-fvtt/runtime/_dist/color/colord/index-bundled.d.ts'
    const destDirPath = './.doc-gen/#runtime/color/colord';
@@ -103,6 +105,21 @@ function processPackageRuntime()
 
    processDTSFile(srcFilePath, destFilePath, libName);
 
+   // Separately create #runtime/color/colord/plugins module info. ---------------------------------------------------
+
+   let srcData = '';
+   const destPluginsDirPath = './.doc-gen/#runtime/color/colord/plugins';
+   const destPluginsFilePath = `${destPluginsDirPath}/index.d.ts`;
+
+   fs.ensureDirSync(destPluginsDirPath);
+
+   const prependFilepath = `./prepend/#runtime/color/colord/plugins.js`;
+   if (fs.pathExistsSync(prependFilepath))
+   {
+      srcData = `${fs.readFileSync(prependFilepath, 'utf-8')}\n\n${srcData}`;
+   }
+
+   fs.writeFileSync(destPluginsFilePath, srcData, 'utf-8');
 }
 
 /**
