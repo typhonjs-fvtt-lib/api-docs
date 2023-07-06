@@ -48,13 +48,13 @@ export class Resolver
     */
    #handleUnknownSymbol(ref)
    {
-      if (ref.moduleSource === 'typescript' || (!ref.moduleSource && ref.resolutionStart === 'global'))
+      // if (ref.moduleSource === 'typescript' || (!ref.moduleSource && ref.resolutionStart === '__global'))
       {
          const symbolPath = ref.symbolReference?.path ?? Resolver.#emptyArray;
 
          // Only handle symbols that start with `globalThis`. All TRL source code uses `globalThis` to reference
          // the Foundry API.
-         if (symbolPath.length < 2 || symbolPath?.[0]?.path !== 'global') { return; }
+         // if (symbolPath.length < 2 || symbolPath?.[0]?.path !== '__global') { return; }
 
          const name = symbolPath?.map((path) => path.path).join('.');
 
