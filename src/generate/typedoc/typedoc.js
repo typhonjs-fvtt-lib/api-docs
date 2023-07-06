@@ -1,6 +1,5 @@
 import {
    Application,
-   Logger,
    LogLevel,
    TSConfigReader }        from 'typedoc';
 
@@ -31,7 +30,6 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       name: 'TyphonJS Runtime Library (FVTT)',
 
       // Provide a link for the title / name.
-      // TODO: not supported by typedoc-theme-yaf.
       // titleLink: '',
 
       // Disables the source links as they reference the d.ts files.
@@ -50,7 +48,7 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       excludePrivate: true,
 
       // For external API linking for @link tags.
-      externalSymbolLinkMappings,
+      // externalSymbolLinkMappings,
 
       // For Typedoc v0.24+; sorts the main index for a namespace; not the sidebar tab.
       groupOrder,
