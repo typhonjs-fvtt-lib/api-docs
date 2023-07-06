@@ -11,5 +11,5 @@
  *
  * Please see the `TJSTinyMCE` Svelte component for more information.
  *
- * @module runtime/tinymce
+ * @module #runtime/tinymce
  */
