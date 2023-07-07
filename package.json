@@ -1,6 +1,6 @@
 {
-  "name": "@typhonjs-fvtt/trl-documentation",
-  "version": "2023.5.1",
+  "name": "@typhonjs-fvtt-lib/api-docs",
+  "version": "0.0.24",
   "description": "Provides comprehensive documentation for the TyphonJS Runtime Library (Foundry VTT edition).",
   "license": "MPL-2.0",
   "private": true,
