@@ -9,7 +9,7 @@ export function processDTS()
    fs.emptyDirSync('./.doc-gen');
 
    processPackageRuntime();
-   processPackageRuntimeColord();
+   processPackageRuntimeAmbient();
    processPackageStandard();
    processPackageSvelte();
 }
@@ -48,6 +48,28 @@ function processDTSFile(srcFilepath, destFilepath, libName)
    srcData = srcData.replaceAll(`from 'svelte`, `from '#svelte`);
 
    fs.writeFileSync(destFilepath, srcData, 'utf-8');
+}
+
+/**
+ * Processing a module by only including ambient / prepend only data.
+ *
+ * @param {string}   libname -
+ */
+function processAmbientPackage(libname)
+{
+   let srcData = '';
+   const destDirPath = `./.doc-gen/${libname}`;
+   const destFilePath = `${destDirPath}/index.d.ts`;
+
+   fs.ensureDirSync(destDirPath);
+
+   const prependFilepath = `./prepend/${libname}.js`;
+   if (fs.pathExistsSync(prependFilepath))
+   {
+      srcData = `${fs.readFileSync(prependFilepath, 'utf-8')}\n\n${srcData}`;
+   }
+
+   fs.writeFileSync(destFilePath, srcData, 'utf-8');
 }
 
 /**
@@ -94,8 +116,9 @@ function processPackageRuntime()
    }
 }
 
-function processPackageRuntimeColord()
+function processPackageRuntimeAmbient()
 {
+   // Need to process colord separately to target bundled index declarations.
    const libName = '#runtime/color/colord';
    const srcFilePath = './node_modules/@typhonjs-fvtt/runtime/_dist/color/colord/index-bundled.d.ts'
    const destDirPath = './.doc-gen/#runtime/color/colord';
@@ -105,21 +128,12 @@ function processPackageRuntimeColord()
 
    processDTSFile(srcFilePath, destFilePath, libName);
 
-   // Separately create #runtime/color/colord/plugins module info. ---------------------------------------------------
+   // Process ambient colord/plugins module info.
+   processAmbientPackage('#runtime/color/colord/plugins');
 
-   let srcData = '';
-   const destPluginsDirPath = './.doc-gen/#runtime/color/colord/plugins';
-   const destPluginsFilePath = `${destPluginsDirPath}/index.d.ts`;
-
-   fs.ensureDirSync(destPluginsDirPath);
-
-   const prependFilepath = `./prepend/#runtime/color/colord/plugins.js`;
-   if (fs.pathExistsSync(prependFilepath))
-   {
-      srcData = `${fs.readFileSync(prependFilepath, 'utf-8')}\n\n${srcData}`;
-   }
-
-   fs.writeFileSync(destPluginsFilePath, srcData, 'utf-8');
+   // Process ambient GSAP module info.
+   processAmbientPackage('#runtime/svelte/gsap/plugin');
+   processAmbientPackage('#runtime/svelte/gsap/plugin/bonus');
 }
 
 /**
