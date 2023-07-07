@@ -7,6 +7,7 @@ const symbolMap = new Map([
    ['Application.maximize', 'https://foundryvtt.com/api/classes/client.Application.html#maximize'],
    ['Application.minimize', 'https://foundryvtt.com/api/classes/client.Application.html#minimize'],
    ['Application.setPosition', 'https://foundryvtt.com/api/classes/client.Application.html#setPosition'],
+   ['ApplicationOptions', 'https://foundryvtt.com/api/interfaces/client.ApplicationOptions.html'],
    ['CombatTracker', 'https://foundryvtt.com/api/classes/client.CombatTracker.html'],
    ['FontFamilyDefinition', 'https://foundryvtt.com/api/interfaces/client.FontFamilyDefinition.html'],
    ['FormApplication', 'https://foundryvtt.com/api/classes/client.FormApplication.html'],
