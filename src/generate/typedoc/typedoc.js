@@ -41,6 +41,9 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       // Removes the default module page including from navigation & breadcrumbs
       dmtRemoveDefaultModule: true,
 
+      // Removes the top level navigation sidebar namespace SVG icon associated with the sub-path exports.
+      dmtRemoveNavTopLevelIcon: true,
+
       entryPoints,
       entryPointStrategy: 'expand',
 
