@@ -77,9 +77,10 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       out: 'docs',
 
       plugin: [
-         'S:\\program\\Javascript\\projects\\TyphonJS\\typhonjs-typedoc\\typedoc-theme-dmt\\dist\\index.js',
+         '@typhonjs-typedoc/typedoc-theme-dmt',
+         '@typhonjs-typedoc/ts-lib-docs/typedoc/ts-links/dom/2023',
+         '@typhonjs-typedoc/ts-lib-docs/typedoc/ts-links/esm/2023',
          './dist/plugin/foundry-links/index.cjs',
-         // 'typedoc-plugin-coverage'
       ],
 
       // Boosts relevance for classes and function in search.
