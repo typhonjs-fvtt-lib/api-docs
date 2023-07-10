@@ -81,7 +81,7 @@ unusable but will increase performance and reduce memory usage.</p>
 <p>Inherited from <a href="_runtime_data_compress.AsyncDeflateOptions.html">AsyncDeflateOptions</a>.<a href="_runtime_data_compress.AsyncDeflateOptions.html#consume">consume</a></p></aside></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="dictionary" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>dictionary</span><a href="#dictionary" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">dictionary</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type ">Uint8Array</span></div>
+<div class="tsd-signature"><span class="tsd-kind-property">dictionary</span><span class="tsd-signature-symbol">?:</span> <a href="https://typhonjs-typedoc.github.io/ts-lib-docs/2023/esm/interfaces/Uint8Array.html" class="tsd-signature-type external" target="_blank">Uint8Array</a></div>
 <div class="tsd-comment tsd-typography"><p>A buffer containing common byte sequences in the input data that can be used to significantly improve compression ratios.</p>
 <p>Dictionaries should be 32kB or smaller and include strings or byte sequences likely to appear in the input.
 The decompressor must supply the same dictionary as the compressor to extract the original data.</p>
@@ -92,7 +92,7 @@ The decompressor must supply the same dictionary as the compressor to extract th
 <p>Inherited from <a href="_runtime_data_compress.AsyncDeflateOptions.html">AsyncDeflateOptions</a>.<a href="_runtime_data_compress.AsyncDeflateOptions.html#dictionary">dictionary</a></p></aside></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="extra" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>extra</span><a href="#extra" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">extra</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type ">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type ">Uint8Array</span><span class="tsd-signature-symbol">&gt;</span></div>
+<div class="tsd-signature"><span class="tsd-kind-property">extra</span><span class="tsd-signature-symbol">?:</span> <a href="https://typhonjs-typedoc.github.io/ts-lib-docs/2023/esm/types/Record.html" class="tsd-signature-type external" target="_blank">Record</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="https://typhonjs-typedoc.github.io/ts-lib-docs/2023/esm/interfaces/Uint8Array.html" class="tsd-signature-type external" target="_blank">Uint8Array</a><span class="tsd-signature-symbol">&gt;</span></div>
 <div class="tsd-comment tsd-typography"><p>Extra metadata to add to the file. This field is defined by PKZIP's APPNOTE.txt,
 section 4.4.28. At most 65,535 bytes may be used in each ID. The ID must be an
 integer between 0 and 65,535, inclusive.</p>
@@ -132,7 +132,7 @@ In addition, values above 8 tend to help very little on most data and can even h
 <p>Inherited from <a href="_runtime_data_compress.AsyncDeflateOptions.html">AsyncDeflateOptions</a>.<a href="_runtime_data_compress.AsyncDeflateOptions.html#mem">mem</a></p></aside></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="mtime" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>mtime</span><a href="#mtime" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">mtime</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">Date</span></div>
+<div class="tsd-signature"><span class="tsd-kind-property">mtime</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="https://typhonjs-typedoc.github.io/ts-lib-docs/2023/esm/interfaces/Date.html" class="tsd-signature-type external" target="_blank">Date</a></div>
 <div class="tsd-comment tsd-typography"><p>When the file was last modified. Defaults to the current time.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
