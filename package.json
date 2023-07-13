@@ -29,7 +29,7 @@
     "@typhonjs-fvtt/runtime": "^0.1.0",
     "@typhonjs-fvtt/svelte-standard": "^0.1.0",
     "@typhonjs-typedoc/typedoc-theme-dmt": "0.0.0",
-    "@typhonjs-typedoc/ts-lib-docs": "2023.7.10",
+    "@typhonjs-typedoc/ts-lib-docs": "2023.7.12",
     "svelte": "^4.0.5",
     "sirv": "^2",
     "polka": "^0.5.2",
