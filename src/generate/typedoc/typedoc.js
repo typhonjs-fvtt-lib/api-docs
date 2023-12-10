@@ -5,7 +5,6 @@ import {
 
 import {
    entryPoints,
-   externalSymbolLinkMappings,
    groupOrder,
    kindSortOrder,
    navigationLinks,
@@ -20,14 +19,8 @@ import {
  */
 export async function typedoc(logLevel = LogLevel.Verbose)
 {
-   // Create a new TypeDoc application instance
-   const app = new Application();
-
-   // Set TypeDoc options
-   app.options.addReader(new TSConfigReader());
-
-   await app.bootstrapWithPlugins({
-      name: 'TyphonJS Runtime Library (FVTT)',
+   const app = await Application.bootstrapWithPlugins({
+      name: 'TyphonJS Runtime Library (FVTT) 0.1.2',
 
       // Provide a link for the title / name.
       // titleLink: '',
@@ -38,11 +31,15 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       // Sets favicon.
       dmtFavicon: './assets/icons/favicon.ico',
 
-      // Removes the default module page including from navigation & breadcrumbs
-      dmtRemoveDefaultModule: true,
+      // Replaces 'Module' for 'Package'.
+      dmtModuleAsPackage: true,
 
-      // Removes the top level navigation sidebar namespace SVG icon associated with the sub-path exports.
-      dmtRemoveNavTopLevelIcon: true,
+      // Add service icon links in toolbar.
+      dmtLinksService: {
+         "Discord": "https://discord.gg/mnbgN8f",
+         "GitHub": "https://github.com/typhonjs-fvtt-lib/typhonjs",
+         "NPM": "https://www.npmjs.com/package/@typhonjs-fvtt/runtime"
+      },
 
       entryPoints,
       entryPointStrategy: 'expand',
@@ -53,7 +50,7 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       // For external API linking for @link tags.
       // externalSymbolLinkMappings,
 
-      // For Typedoc v0.24+; sorts the main index for a namespace; not the sidebar tab.
+      // For Typedoc v0.24+; sorts the main index for a module / package; not the sidebar tab.
       groupOrder,
 
       // Sorts the sidebar symbol types.
@@ -65,12 +62,7 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       // Sets log level.
       logLevel,
 
-      // New option in 0.24.8 required to render full navigation tree.
-      navigation: {
-         fullTree: true
-      },
-
-      // Provides links for the top nav bar
+      // Provides sidebar links.
       navigationLinks,
 
       // Output directory for the generated documentation
@@ -92,10 +84,10 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       visibilityFilters: {
          inherited: true,
       }
-   });
+   }, [new TSConfigReader()]);
 
    // Convert TypeScript sources to a TypeDoc ProjectReflection
-   const project = app.convert();
+   const project = await app.convert();
 
    // Generate the documentation
    if (project)

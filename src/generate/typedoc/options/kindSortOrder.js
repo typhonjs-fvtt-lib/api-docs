@@ -19,7 +19,6 @@ export const kindSortOrder = [
    'Variable',
    'Accessor',
    'Method',
-   'ObjectLiteral',
    'Parameter',
    'TypeParameter',
    'TypeLiteral',

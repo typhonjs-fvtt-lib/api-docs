@@ -5,6 +5,9 @@
  */
 export const groupOrder = [
    'Classes',
+   'Constructors',
+   'Accessors',
+   'Methods',
    'Functions',
    'Namespaces',
    'Variables',

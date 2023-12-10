@@ -30,18 +30,17 @@
     "@typhonjs-fvtt/svelte-standard": "0.1.0",
     "@typhonjs-typedoc/typedoc-theme-dmt": "0.1.0",
     "@typhonjs-typedoc/ts-lib-docs": "2023.7.12",
-    "svelte": "^4.2.0",
-    "sirv": "^2",
-    "polka": "^0.5.2",
-    "typedoc": "^0.24.8",
-    "typescript": "^5.1.6",
+    "svelte": "^4.2.8",
+    "sirv-cli": "^2",
+    "typedoc": "^0.25.4",
+    "typescript": "^5.3.2",
     "upath": "^2.0.1"
   },
   "browserslist": [">5%", "not IE 11"],
   "scripts": {
     "build-docs": "node src/generate/generate.js",
     "build-plugin": "rollup -c",
-    "serve": "node src/serve/serve.js",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "serve": "sirv ./docs --host"
   }
 }
