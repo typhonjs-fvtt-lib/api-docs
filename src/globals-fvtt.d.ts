@@ -3,6 +3,7 @@ declare global {
    export type CompendiumCollection = object;
    export type DocumentCollection = object;
    export type EditorView = object;
+   export type EnrichmentOptions = object;
    export type FavoriteFolder = object;
    export type Folder = object;
    export type FontFamilyDefinition = object;
@@ -14,6 +15,9 @@ declare global {
       namespace abstract {
          export type Document = object;
       }
+   }
+   export namespace ProseMirror {
+      export type Plugin = object;
    }
 }
 
