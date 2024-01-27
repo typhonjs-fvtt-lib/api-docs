@@ -3,6 +3,8 @@ const symbolMap = new Map([
    ['__global.foundry.abstract.Document', 'https://foundryvtt.com/api/classes/foundry.abstract.Document.html'],
    ['__global.game', 'https://foundryvtt.com/api/classes/client.Game.html'],
    ['__global.DocumentCollection', 'https://foundryvtt.com/api/classes/client.DocumentCollection.html'],
+   ['__global.EnrichmentOptions', 'https://foundryvtt.com/api/interfaces/client.EnrichmentOptions.html'],
+   ['__global.FavoriteFolder', 'https://foundryvtt.com/api/interfaces/client.FavoriteFolder.html'],
    ['__global.FontFamilyDefinition', 'https://foundryvtt.com/api/interfaces/client.FontFamilyDefinition.html'],
    ['Application', 'https://foundryvtt.com/api/classes/client.Application.html'],
    ['Application.maximize', 'https://foundryvtt.com/api/classes/client.Application.html#maximize'],
