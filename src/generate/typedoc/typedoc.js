@@ -32,17 +32,22 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       dmtFavicon: './assets/icons/favicon.ico',
 
       // Replaces 'Module' for 'Package'.
-      dmtModuleAsPackage: true,
+      dmtModuleRemap: {
+         isPackage: true
+      },
 
       // Add service icon links in toolbar.
       dmtLinksService: {
-         "Discord": "https://discord.gg/mnbgN8f",
+         "Discord": "https://typhonjs.io/discord/",
          "GitHub": "https://github.com/typhonjs-fvtt-lib/typhonjs",
          "NPM": "https://www.npmjs.com/package/@typhonjs-fvtt/runtime"
       },
 
       entryPoints,
       entryPointStrategy: 'expand',
+
+      // Excludes any @internal marked symbols.
+      excludeInternal: true,
 
       // Excludes any private members including the `#private;` member added by Typescript.
       excludePrivate: true,
@@ -80,9 +85,10 @@ export async function typedoc(logLevel = LogLevel.Verbose)
 
       theme: 'default-modern',
 
-      // Only show the `inherited` filter.
+      // Only show the `inherited` & `protected` filters.
       visibilityFilters: {
          inherited: true,
+         protected: true
       }
    }, [new TSConfigReader()]);
 
