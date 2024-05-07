@@ -171,7 +171,12 @@ function processPackageStandard()
  */
 function processPackageSvelte()
 {
-   const svelteTypes = fs.readFileSync('./node_modules/svelte/types/index.d.ts', 'utf-8');
+   let svelteTypes = fs.readFileSync('./node_modules/svelte/types/index.d.ts', 'utf-8');
+
+   svelteTypes = svelteTypes.replaceAll('### PRIVATE API', '@internal');
+   svelteTypes = svelteTypes.replaceAll('### DO NOT USE!', '@internal');
+   svelteTypes = svelteTypes.replaceAll('$capture_state(): void;', '');
+   svelteTypes = svelteTypes.replaceAll('$inject_state(): void;', '');
 
    // const regex = /declare module '([^']*)' \{([^}]*)}/gs;
    const regex = /declare module '([^']*)' \{((?:[^d]|d(?!eclare module))+)}/gs;
