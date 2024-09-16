@@ -6342,6 +6342,9 @@ class DetailsAccordion
             // Otherwise hook up a "one off" details element.
             const store = this.#detailsSessionStorage.getStore(key, detailEl.open);
             this.#toggleDetailsActionReturns.push(toggleDetails(detailEl, { store }));
+
+            // Ensure that when TypeDoc modifies the open state to update store.
+            detailEl.addEventListener('toggle', (event) => store.set(event.target.open));
          }
       }
 
@@ -6367,6 +6370,9 @@ class DetailsAccordion
          for (const detailEl of detailElSet)
          {
             this.#toggleDetailsActionReturns.push(toggleDetails(detailEl, { store }));
+
+            // Ensure that when TypeDoc modifies the open state to update store.
+            detailEl.addEventListener('toggle', (event) => store.set(event.target.open));
          }
       }
 
