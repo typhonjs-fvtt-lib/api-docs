@@ -83,9 +83,7 @@ function processPackageRuntime()
 
    const ignoreKeys = [
       './package.json',
-      './rollup',
-      './color/colord',             // Special handling / use index-bundled.d.ts
-      './color/colord/plugins/*'    // Need to figure out how to handle declare module types.
+      './rollup'
    ];
 
    // These exports keys have types, but not defined in exports.
@@ -118,19 +116,6 @@ function processPackageRuntime()
 
 function processPackageRuntimeAmbient()
 {
-   // Need to process colord separately to target bundled index declarations.
-   const libName = '#runtime/color/colord';
-   const srcFilePath = './node_modules/@typhonjs-fvtt/runtime/_dist/color/colord/index-bundled.d.ts'
-   const destDirPath = './.doc-gen/#runtime/color/colord';
-   const destFilePath = `${destDirPath}/index.d.ts`;
-
-   fs.ensureDirSync(destDirPath);
-
-   processDTSFile(srcFilePath, destFilePath, libName);
-
-   // Process ambient colord/plugins module info.
-   processAmbientPackage('#runtime/color/colord/plugins');
-
    // Process ambient GSAP module info.
    processAmbientPackage('#runtime/svelte/gsap/plugin');
    processAmbientPackage('#runtime/svelte/gsap/plugin/bonus');
