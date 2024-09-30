@@ -75,8 +75,8 @@ export async function typedoc(logLevel = LogLevel.Verbose)
 
       plugin: [
          '@typhonjs-typedoc/typedoc-theme-dmt',
-         '@typhonjs-typedoc/ts-lib-docs/typedoc/ts-links/dom/2023',
-         '@typhonjs-typedoc/ts-lib-docs/typedoc/ts-links/esm/2023',
+         '@typhonjs-typedoc/ts-lib-docs/typedoc/ts-links/dom/2024',
+         '@typhonjs-typedoc/ts-lib-docs/typedoc/ts-links/es/2024',
          './dist/plugin/foundry-links/index.cjs',
       ],
 
