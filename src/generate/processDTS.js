@@ -44,7 +44,7 @@ function processDTSFile(srcFilepath, destFilepath, libName)
 
    // Substitute imported declarations to local `imports` from `package.json`.
    srcData = srcData.replaceAll(`from '@typhonjs-fvtt/runtime/`, `from '#runtime/`);
-   srcData = srcData.replaceAll(`from '@typhonjs-fvtt/svelte-standard/`, `from '#standard/`);
+   srcData = srcData.replaceAll(`from '@typhonjs-fvtt/standard/`, `from '#standard/`);
    srcData = srcData.replaceAll(`from 'svelte`, `from '#svelte`);
 
    fs.writeFileSync(destFilepath, srcData, 'utf-8');
@@ -122,11 +122,11 @@ function processPackageRuntimeAmbient()
 }
 
 /**
- * Processes the @typhonjs-fvtt/runtime NPM package.json and TS declarations.
+ * Processes the @typhonjs-fvtt/standard NPM package.json and TS declarations.
  */
 function processPackageStandard()
 {
-   const pathNPM = './node_modules/@typhonjs-fvtt/svelte-standard';
+   const pathNPM = './node_modules/@typhonjs-fvtt/standard';
 
    const packageJSON = JSON.parse(fs.readFileSync(`${pathNPM}/package.json`, 'utf-8'));
 
