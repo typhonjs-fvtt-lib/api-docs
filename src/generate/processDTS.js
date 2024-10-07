@@ -90,7 +90,6 @@ function processPackageRuntime()
    const syntheticTypeKeys = [
       './svelte/application',
       './svelte/application/dialog',   // Need to better define types.
-      './svelte/application/legacy'
    ];
 
    for (const [key, value] of Object.entries(packageJSON.exports))
