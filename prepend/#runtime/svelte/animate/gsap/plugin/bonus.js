@@ -23,5 +23,5 @@
  * // To load a plugin simply import the plugin and it will be available from `gsap` and `GsapCompose`.
  * import '#runtime/svelte/gsap/plugin/bonus/CustomWiggle';
  *
- * @module #runtime/svelte/gsap/plugin/bonus
+ * @module #runtime/svelte/animate/gsap/plugin/bonus
  */

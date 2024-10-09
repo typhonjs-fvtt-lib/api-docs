@@ -23,5 +23,5 @@
  * import '#runtime/svelte/gsap/plugin/CustomEase';
  * import '#runtime/svelte/gsap/plugin/MotionPathPlugin';
  *
- * @module #runtime/svelte/gsap/plugin
+ * @module #runtime/svelte/animate/gsap/plugin
  */

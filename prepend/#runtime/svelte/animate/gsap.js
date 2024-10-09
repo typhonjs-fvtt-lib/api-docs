@@ -6,5 +6,5 @@
  * is a powerful way to construct GSAP animations declaratively in a data oriented manner and supports hooking up and
  * controlling `TJSPosition`. There also is a Svelte action to hook up dragging support {@link draggableGsap}.
  *
- * @module #runtime/svelte/gsap
+ * @module #runtime/svelte/animate/gsap
  */
