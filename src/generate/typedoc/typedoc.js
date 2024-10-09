@@ -39,7 +39,7 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       // Add service icon links in toolbar.
       dmtLinksService: {
          "Discord": "https://typhonjs.io/discord/",
-         "GitHub": "https://github.com/typhonjs-fvtt-lib/typhonjs",
+         "GitHub": "https://github.com/typhonjs-fvtt-lib/runtime",
          "NPM": "https://www.npmjs.com/package/@typhonjs-fvtt/runtime"
       },
 

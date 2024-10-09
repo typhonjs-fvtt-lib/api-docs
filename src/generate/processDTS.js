@@ -116,8 +116,8 @@ function processPackageRuntime()
 function processPackageRuntimeAmbient()
 {
    // Process ambient GSAP module info.
-   processAmbientPackage('#runtime/svelte/gsap/plugin');
-   processAmbientPackage('#runtime/svelte/gsap/plugin/bonus');
+   processAmbientPackage('#runtime/svelte/animate/gsap/plugin');
+   processAmbientPackage('#runtime/svelte/animate/gsap/plugin/bonus');
 }
 
 /**
