@@ -6,6 +6,7 @@ import {
 import {
    entryPoints,
    groupOrder,
+   highlightLanguages,
    kindSortOrder,
    navigationLinks,
    searchGroupBoosts }     from './options/index.js';
@@ -63,6 +64,8 @@ export async function typedoc(logLevel = LogLevel.Verbose)
 
       // Hide the documentation generator footer.
       hideGenerator: true,
+
+      highlightLanguages,
 
       // Sets log level.
       logLevel,
