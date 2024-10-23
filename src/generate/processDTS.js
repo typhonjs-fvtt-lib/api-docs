@@ -44,7 +44,7 @@ function processDTSFile(srcFilepath, destFilepath, libName)
 
    // Substitute imported declarations to local `imports` from `package.json`.
    srcData = srcData.replaceAll(`from '@typhonjs-fvtt/runtime/`, `from '#runtime/`);
-   srcData = srcData.replaceAll(`from '@typhonjs-fvtt/svelte-standard/`, `from '#standard/`);
+   srcData = srcData.replaceAll(`from '@typhonjs-fvtt/standard/`, `from '#standard/`);
    srcData = srcData.replaceAll(`from 'svelte`, `from '#svelte`);
 
    fs.writeFileSync(destFilepath, srcData, 'utf-8');
@@ -83,16 +83,13 @@ function processPackageRuntime()
 
    const ignoreKeys = [
       './package.json',
-      './rollup',
-      './color/colord',             // Special handling / use index-bundled.d.ts
-      './color/colord/plugins/*'    // Need to figure out how to handle declare module types.
+      './rollup'
    ];
 
    // These exports keys have types, but not defined in exports.
    const syntheticTypeKeys = [
       './svelte/application',
       './svelte/application/dialog',   // Need to better define types.
-      './svelte/application/legacy'
    ];
 
    for (const [key, value] of Object.entries(packageJSON.exports))
@@ -118,30 +115,17 @@ function processPackageRuntime()
 
 function processPackageRuntimeAmbient()
 {
-   // Need to process colord separately to target bundled index declarations.
-   const libName = '#runtime/color/colord';
-   const srcFilePath = './node_modules/@typhonjs-fvtt/runtime/_dist/color/colord/index-bundled.d.ts'
-   const destDirPath = './.doc-gen/#runtime/color/colord';
-   const destFilePath = `${destDirPath}/index.d.ts`;
-
-   fs.ensureDirSync(destDirPath);
-
-   processDTSFile(srcFilePath, destFilePath, libName);
-
-   // Process ambient colord/plugins module info.
-   processAmbientPackage('#runtime/color/colord/plugins');
-
    // Process ambient GSAP module info.
-   processAmbientPackage('#runtime/svelte/gsap/plugin');
-   processAmbientPackage('#runtime/svelte/gsap/plugin/bonus');
+   processAmbientPackage('#runtime/svelte/animate/gsap/plugin');
+   processAmbientPackage('#runtime/svelte/animate/gsap/plugin/bonus');
 }
 
 /**
- * Processes the @typhonjs-fvtt/runtime NPM package.json and TS declarations.
+ * Processes the @typhonjs-fvtt/standard NPM package.json and TS declarations.
  */
 function processPackageStandard()
 {
-   const pathNPM = './node_modules/@typhonjs-fvtt/svelte-standard';
+   const pathNPM = './node_modules/@typhonjs-fvtt/standard';
 
    const packageJSON = JSON.parse(fs.readFileSync(`${pathNPM}/package.json`, 'utf-8'));
 

@@ -6,6 +6,7 @@ import {
 import {
    entryPoints,
    groupOrder,
+   highlightLanguages,
    kindSortOrder,
    navigationLinks,
    searchGroupBoosts }     from './options/index.js';
@@ -20,7 +21,7 @@ import {
 export async function typedoc(logLevel = LogLevel.Verbose)
 {
    const app = await Application.bootstrapWithPlugins({
-      name: 'TyphonJS Runtime Library (FVTT) 0.1.2',
+      name: 'TyphonJS Runtime Library (FVTT) 0.2.0-next.1',
 
       // Provide a link for the title / name.
       // titleLink: '',
@@ -39,7 +40,7 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       // Add service icon links in toolbar.
       dmtLinksService: {
          "Discord": "https://typhonjs.io/discord/",
-         "GitHub": "https://github.com/typhonjs-fvtt-lib/typhonjs",
+         "GitHub": "https://github.com/typhonjs-fvtt-lib/runtime",
          "NPM": "https://www.npmjs.com/package/@typhonjs-fvtt/runtime"
       },
 
@@ -64,6 +65,8 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       // Hide the documentation generator footer.
       hideGenerator: true,
 
+      highlightLanguages,
+
       // Sets log level.
       logLevel,
 
@@ -75,8 +78,8 @@ export async function typedoc(logLevel = LogLevel.Verbose)
 
       plugin: [
          '@typhonjs-typedoc/typedoc-theme-dmt',
-         '@typhonjs-typedoc/ts-lib-docs/typedoc/ts-links/dom/2023',
-         '@typhonjs-typedoc/ts-lib-docs/typedoc/ts-links/esm/2023',
+         '@typhonjs-typedoc/ts-lib-docs/typedoc/ts-links/dom/2024',
+         '@typhonjs-typedoc/ts-lib-docs/typedoc/ts-links/es/2024',
          './dist/plugin/foundry-links/index.cjs',
       ],
 

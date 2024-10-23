@@ -42,7 +42,7 @@ export class Resolver
 
       this.#app.converter.addUnknownSymbolResolver(this.#handleUnknownSymbol.bind(this));
 
-      this.#app.renderer.once(RendererEvent.END, () =>
+      this.#app.renderer.on(RendererEvent.END, () =>
       {
          if (this.#failed.size)
          {
