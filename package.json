@@ -26,13 +26,13 @@
   "devDependencies": {
     "@types/node": "^20.3.3",
     "@typhonjs-build-test/node": "^0.0.11",
-    "@typhonjs-fvtt/runtime": "0.1.2",
-    "@typhonjs-fvtt/svelte-standard": "0.1.0",
-    "@typhonjs-typedoc/typedoc-theme-dmt": "^0.2.1",
+    "@typhonjs-fvtt/runtime": "0.2.0-next.1",
+    "@typhonjs-fvtt/standard": "0.2.0-next.1",
+    "@typhonjs-typedoc/typedoc-theme-dmt": "^0.2.3",
     "@typhonjs-typedoc/ts-lib-docs": "2024.9.18",
     "svelte": "^4.2.19",
     "sirv-cli": "^2",
-    "typedoc": "0.26.7",
+    "typedoc": "0.26.10",
     "typescript": "^5.6.2",
     "upath": "^2.0.1"
   },
