@@ -21,7 +21,7 @@ import {
 export async function typedoc(logLevel = LogLevel.Verbose)
 {
    const app = await Application.bootstrapWithPlugins({
-      name: 'TyphonJS Runtime Library (FVTT) 0.2.0-next.1',
+      name: 'TyphonJS Runtime Library (FVTT) 0.2.0',
 
       // Provide a link for the title / name.
       // titleLink: '',
