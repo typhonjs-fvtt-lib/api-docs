@@ -20,8 +20,8 @@
  *
  * @example
  * // To load a plugin simply import the plugin and it will be available from `gsap` and `GsapCompose`.
- * import '#runtime/svelte/gsap/plugin/CustomEase';
- * import '#runtime/svelte/gsap/plugin/MotionPathPlugin';
+ * import '#runtime/svelte/animate/gsap/plugin/CustomEase';
+ * import '#runtime/svelte/animate/gsap/plugin/MotionPathPlugin';
  *
  * @module #runtime/svelte/animate/gsap/plugin
  */
