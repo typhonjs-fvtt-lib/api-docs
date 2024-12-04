@@ -4,8 +4,6 @@
  * @type {string[]}
  */
 export const highlightLanguages = [
-   "bash",
-   "console",
    "css",
    "html",
    "javascript",
