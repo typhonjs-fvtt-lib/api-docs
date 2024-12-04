@@ -4,9 +4,8 @@
  * @type {string[]}
  */
 export const highlightLanguages = [
-   // TODO: Add back in with next TypeDoc release.
-   // "bash",
-   // "console",
+   "bash",
+   "console",
    "css",
    "html",
    "javascript",
