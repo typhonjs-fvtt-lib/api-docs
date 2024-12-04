@@ -1,6 +1,6 @@
 {
   "name": "@typhonjs-fvtt-lib/api-docs",
-  "version": "0.2.0-next.4",
+  "version": "0.2.0-next.5",
   "description": "Provides comprehensive documentation for the TyphonJS Runtime Library (Foundry VTT edition).",
   "license": "MPL-2.0",
   "private": true,
@@ -24,16 +24,16 @@
     }
   },
   "devDependencies": {
-    "@types/node": "^20.3.3",
+    "@types/node": "^22.10.1",
     "@typhonjs-build-test/node": "^0.0.11",
-    "@typhonjs-fvtt/runtime": "0.2.0-next.4",
+    "@typhonjs-fvtt/runtime": "0.2.0-next.5",
     "@typhonjs-fvtt/standard": "0.2.0-next.3",
-    "@typhonjs-typedoc/typedoc-theme-dmt": "^0.2.3",
+    "@typhonjs-typedoc/typedoc-theme-dmt": "^0.3.0",
     "@typhonjs-typedoc/ts-lib-docs": "2024.9.18",
     "svelte": "^4.2.19",
     "sirv-cli": "^2",
-    "typedoc": "0.26.10",
-    "typescript": "^5.6.2",
+    "typedoc": "0.27.3",
+    "typescript": "^5.7.2",
     "upath": "^2.0.1"
   },
   "browserslist": [">5%", "not IE 11"],
