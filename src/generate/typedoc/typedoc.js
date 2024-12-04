@@ -80,7 +80,7 @@ export async function typedoc(logLevel = LogLevel.Verbose)
          '@typhonjs-typedoc/typedoc-theme-dmt',
          '@typhonjs-typedoc/ts-lib-docs/typedoc/ts-links/dom/2024',
          '@typhonjs-typedoc/ts-lib-docs/typedoc/ts-links/es/2024',
-         './dist/plugin/foundry-links/index.cjs',
+         './dist/plugin/foundry-links/index.js',
       ],
 
       // Boosts relevance for classes and function in search.
