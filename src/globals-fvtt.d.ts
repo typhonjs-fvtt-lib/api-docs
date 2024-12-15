@@ -1,5 +1,7 @@
 declare global {
+   export class Application<Options> {}
    export type ApplicationHeaderButton = object;
+   export type ApplicationOptions = object;
    export type CompendiumCollection = object;
    export type DocumentCollection = object;
    export type EditorView = object;
