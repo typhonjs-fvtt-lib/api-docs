@@ -53,9 +53,6 @@ export async function typedoc(logLevel = LogLevel.Verbose)
       // Excludes any private members including the `#private;` member added by Typescript.
       excludePrivate: true,
 
-      // For external API linking for @link tags.
-      // externalSymbolLinkMappings,
-
       // For Typedoc v0.24+; sorts the main index for a module / package; not the sidebar tab.
       groupOrder,
 
