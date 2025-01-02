@@ -96,7 +96,11 @@ export class Resolver
 
          let result;
 
-         for (const resolver of resolvers) { result = resolver(name); }
+         for (const resolver of resolvers)
+         {
+            result = resolver(name);
+            if (result) { break; }
+         }
 
          const fullName = `${ref.moduleSource}/${name}`;
 
