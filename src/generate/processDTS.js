@@ -83,7 +83,9 @@ function processPackageRuntime()
 
    const ignoreKeys = [
       './package.json',
-      './rollup'
+      './rollup',
+      './types/fvtt-shim/league',
+      './types/fvtt-shim/pf2e'
    ];
 
    // These exports keys have types, but not defined in exports.
