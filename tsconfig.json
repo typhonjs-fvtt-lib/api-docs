@@ -14,7 +14,7 @@
 
     "types": [
       "foundry-pf2e/foundry",
-      "@typhonjs-fvtt/runtime/types/fvtt-shim"
+      "@typhonjs-fvtt/runtime/types/fvtt-shim/pf2e"
     ],
   },
   "include" : [
