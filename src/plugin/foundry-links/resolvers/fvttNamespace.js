@@ -3,6 +3,10 @@
  */
 const symbolMap = new Map([
    ['FVTTDocumentCollection', { caption: 'DocumentCollection', target: 'https://foundryvtt.com/api/classes/client.DocumentCollection.html' }],
+   ['FVTTDocumentConstructor', { caption: 'DocumentConstructor', target: 'https://foundryvtt.com/api/classes/foundry.abstract.Document.html' }],
+   ['FVTTDocument', { caption: 'Document', target: 'https://foundryvtt.com/api/classes/foundry.abstract.Document.html' }],
+
+   ['__global.ClientDocument', { caption: 'ClientDocument', target: 'https://foundryvtt.com/api/classes/foundry.abstract.Document.html' }],
 ]);
 
 /**
