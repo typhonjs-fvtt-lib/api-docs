@@ -1,10 +1,15 @@
 import {
    Application,
+   Converter,
    ProjectReflection,
    ReflectionKind,
-   RendererEvent }   from 'typedoc';
+   RendererEvent }                     from 'typedoc';
 
-import { resolvers } from './resolvers/index.js';
+import { discoverAllReferenceTypes }   from '../../../node_modules/typedoc/dist/lib/utils/reflections.js';
+
+import { resolvers }                   from './resolvers/index.js';
+
+import { fvttNamespaceMap }            from './fvttNamespaceMap.js';
 
 export class Resolver
 {
@@ -27,7 +32,7 @@ export class Resolver
     * @type {{objectReturn: boolean}}
     */
    #supports = {
-      objectReturn: false
+      objectReturn: true
    };
 
    /**
@@ -37,10 +42,17 @@ export class Resolver
    {
       this.#app = app;
 
-      const version = Application.VERSION.split(/[.-]/);
-      this.#supports.objectReturn = +version[1] > 23 || +version[2] >= 26;
-
       this.#app.converter.addUnknownSymbolResolver(this.#handleUnknownSymbol.bind(this));
+
+      // Convert all non-reflection reference types that don't have types defined.
+      // `fvttNamespaceMap` will change the names of all shimmed Foundry types.
+      this.#app.converter.on(Converter.EVENT_END, (event) =>
+      {
+         for (const { type } of discoverAllReferenceTypes(event.project, false))
+         {
+            if (!type.reflection && fvttNamespaceMap.has(type?.name)) { type.name = fvttNamespaceMap.get(type.name); }
+         }
+      });
 
       this.#app.renderer.on(RendererEvent.END, () =>
       {
@@ -90,32 +102,24 @@ export class Resolver
       {
          const symbolPath = ref.symbolReference?.path ?? Resolver.#emptyArray;
 
-         const name = symbolPath?.map((path) => path.path).join('.');
+         const nameInitial = symbolPath?.map((path) => path.path).join('.');
 
-         if (!name) { return; }
+         if (!nameInitial) { return; }
 
          let result;
 
          for (const resolver of resolvers)
          {
-            result = resolver(name);
+            result = resolver(nameInitial);
             if (result) { break; }
          }
 
-         const fullName = `${ref.moduleSource}/${name}`;
+         const fullName = `${ref.moduleSource}/${nameInitial}`;
 
          if (!result && !this.#failed.has(fullName))
          {
-            this.#failed.set(fullName, `[link-resolver] ${name} from ${ref.moduleSource} in ${
+            this.#failed.set(fullName, `[link-resolver] ${nameInitial} from ${ref.moduleSource} in ${
              this.#getSymbolName(refl)} (${ReflectionKind.singularString(refl.kind)})`);
-         }
-
-         if (this.#supports.objectReturn && result)
-         {
-            return {
-               target: result,
-               caption: name,
-            };
          }
 
          return result;
