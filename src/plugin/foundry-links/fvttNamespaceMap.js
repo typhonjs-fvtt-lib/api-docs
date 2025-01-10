@@ -2,6 +2,8 @@
  * @type {Map<string, string>}
  */
 export const fvttNamespaceMap = new Map([
+   ['fvtt.ApplicationOptions', 'ApplicationOptions'],
+
    ['fvtt.ClientDocument', 'Document'],
    ['ClientDocument', 'Document'],
 
