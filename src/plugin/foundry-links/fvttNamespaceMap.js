@@ -7,6 +7,9 @@ export const fvttNamespaceMap = new Map([
    ['fvtt.ClientDocument', 'Document'],
    ['ClientDocument', 'Document'],
 
+   ['fvtt.DataModel', 'DataModel'],
+   ['FVTTDataModel', 'DataModel'],
+
    ['fvtt.Document', 'Document'],
    ['FVTTDocument', 'Document'],
 
