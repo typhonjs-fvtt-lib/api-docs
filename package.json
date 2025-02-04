@@ -26,8 +26,8 @@
   "devDependencies": {
     "@types/node": "^22.10.1",
     "@typhonjs-build-test/node": "^0.0.11",
-    "@typhonjs-fvtt/runtime": "0.2.0-next.7",
-    "@typhonjs-fvtt/standard": "0.2.0-next.4",
+    "@typhonjs-fvtt/runtime": "0.2.0-next.9",
+    "@typhonjs-fvtt/standard": "0.2.0-next.6",
     "@typhonjs-typedoc/typedoc-theme-dmt": "^0.3.1",
     "@typhonjs-typedoc/ts-lib-docs": "2024.12.25",
     "foundry-pf2e": "github:7H3LaughingMan/foundry-pf2e",
