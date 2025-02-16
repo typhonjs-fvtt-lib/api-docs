@@ -44,8 +44,10 @@ export async function typedoc(logLevel = LogLevel.Verbose)
          "NPM": "https://www.npmjs.com/package/@typhonjs-fvtt/runtime"
       },
 
-      entryPoints,
-      entryPointStrategy: 'expand',
+      // Note: A concrete list of entry points are generated with re-ordering as necessary to force TypeDoc to generate
+      // proper re-exports between dependent sub-path exports.
+      entryPoints: await entryPoints(),
+      entryPointStrategy: 'resolve',
 
       // Excludes any @internal marked symbols.
       excludeInternal: true,
