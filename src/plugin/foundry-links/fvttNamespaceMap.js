@@ -21,4 +21,6 @@ export const fvttNamespaceMap = new Map([
 
    ['fvtt.EmbeddedCollection', 'EmbeddedCollection'],
    ['FVTTEmbeddedCollection', 'EmbeddedCollection'],
+
+   ['fvtt.EnrichmentOptions', 'EnrichmentOptions'],
 ]);
