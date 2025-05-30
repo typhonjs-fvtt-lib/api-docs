@@ -84,7 +84,6 @@ function processPackageRuntime()
    const ignoreKeys = [
       './package.json',
       './rollup',
-      './types/fvtt-shim/guard',
       './types/fvtt-shim/league',
       './types/fvtt-shim/pf2e'
    ];
