@@ -31,12 +31,12 @@
     --dark-hl-14: #808080;
     --light-hl-15: #800000;
     --dark-hl-15: #569CD6;
-    --light-hl-16: #E50000;
-    --dark-hl-16: #9CDCFE;
-    --light-hl-17: #0000FF;
-    --dark-hl-17: #CE9178;
-    --light-hl-18: #CD3131;
-    --dark-hl-18: #F44747;
+    --light-hl-16: #CD3131;
+    --dark-hl-16: #F44747;
+    --light-hl-17: #E50000;
+    --dark-hl-17: #9CDCFE;
+    --light-hl-18: #0000FF;
+    --dark-hl-18: #CE9178;
     --light-code-background: #FFFFFF;
     --dark-code-background: #1E1E1E;
 }
