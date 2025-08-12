@@ -2,10 +2,16 @@
  * @type {Map<string, string>}
  */
 export const fvttNamespaceMap = new Map([
-   ['fvtt.ApplicationOptions', 'ApplicationOptions'],
+   ['default', 'Application'],   // pf2e types does not have a named Application reference.
 
-   ['fvtt.ClientDocument', 'Document'],
-   ['ClientDocument', 'Document'],
+   ['fvtt.ApplicationOptions', 'ApplicationV1Options'],
+   ['FVTTApplicationOptions', 'ApplicationV1Options'],
+
+   ['fvtt.ClientDocument', 'ClientDocument'],
+   ['FVTTClientDocument', 'ClientDocument'],
+   ['ClientDocument', 'ClientDocument'],
+
+   ['FVTTCompendiumCollection', 'CompendiumCollection'],
 
    ['fvtt.DataModel', 'DataModel'],
    ['FVTTDataModel', 'DataModel'],
@@ -23,4 +29,6 @@ export const fvttNamespaceMap = new Map([
    ['FVTTEmbeddedCollection', 'EmbeddedCollection'],
 
    ['fvtt.EnrichmentOptions', 'EnrichmentOptions'],
+
+   ['fvtt.FavoriteFolder', 'FavoriteFolder'],
 ]);
