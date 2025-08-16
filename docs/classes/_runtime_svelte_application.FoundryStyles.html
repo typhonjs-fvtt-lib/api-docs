@@ -4,7 +4,7 @@ and module overrides. Both, <a href="_runtime_svelte_application.FoundryStyles.h
 <a href="_runtime_util_dom_style.StyleSheetResolve.html" class="tsd-kind-class">#runtime/util/dom/style!StyleSheetResolve</a> that has a reduced amount of parsed style information relevant to
 configuring essential styling. <code>StyleSheetResolve</code> allows access to discrete CSS selectors and associated properties
 including resolving CSS variables across selectors / elements.</p>
-<p><code>FoundryStyles</code> is used internally to TRL to construct the flattened CSS variables generated at runtime to match
+<p><code>FoundryStyles</code> is used internally by TRL to construct the flattened CSS variables generated at runtime to match
 the platform theming. The core Foundry styles are not flat with many CSS variables having extended element scoping.</p>
 <p>The following CSS layers are parsed from Foundry core styles:</p>
 <pre><code><span class="hl-0">- </span><span class="hl-2">`variables.base`</span><br><span class="hl-0">- </span><span class="hl-2">`variables.themes.*`</span><br><span class="hl-0">- </span><span class="hl-2">`elements.*`</span>
