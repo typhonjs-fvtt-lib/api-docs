@@ -44,6 +44,11 @@ export async function typedoc(logLevel = LogLevel.Verbose)
          "NPM": "https://www.npmjs.com/package/@typhonjs-fvtt/runtime"
       },
 
+      // Search returns up to 30 items.
+      dmtSearch: {
+         limit: 30
+      },
+
       // Note: A concrete list of entry points are generated with re-ordering as necessary to force TypeDoc to generate
       // proper re-exports between dependent sub-path exports.
       entryPoints: await entryPoints(),
