@@ -8,8 +8,8 @@ desktop like GUI framework, but there is much more to explore as well.
 In the near future TRL will be available for open web app development on top of SvelteKit and Svelte in general.
 
 I will be adding many examples to the TRL API docs in the coming months along with a forthcoming developer guide / 
-tutorial. At this present stage the API docs cover the entire ESM code and packages available including all Svelte 
-components.
+tutorial. For now the best way to receive assistance and getting started with TRL is to join the 
+[TyphonJS Discord](https://typhonjs.io/discord/) server where you can ask questions about Foundry VTT, Svelte, and TRL.
 
 The API docs are available here: https://typhonjs-fvtt-lib.github.io/api-docs
 
