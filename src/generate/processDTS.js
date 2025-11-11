@@ -42,6 +42,9 @@ function processDTSFile(srcFilepath, destFilepath, libName)
       srcData = `${fs.readFileSync(prependFilepath, 'utf-8')}\n\n${srcData}`;
    }
 
+   // Must substitute for TypeDoc actual class reference.
+   srcData = srcData.replaceAll(`typeof fvtt.DataModel`, `typeof foundry.abstract.DataModel`);
+
    // Substitute imported declarations to local `imports` from `package.json`.
    srcData = srcData.replaceAll(`from '@typhonjs-fvtt/runtime/`, `from '#runtime/`);
    srcData = srcData.replaceAll(`from '@typhonjs-fvtt/standard/`, `from '#standard/`);
