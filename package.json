@@ -31,7 +31,7 @@
     "@typhonjs-typedoc/typedoc-theme-dmt": "^0.4.0",
     "@typhonjs-typedoc/ts-lib-docs": "2024.12.25",
     "@typhonjs-utils/file-util": "^0.1.0",
-    "foundry-pf2e": "github:7H3LaughingMan/foundry-pf2e",
+    "@league-of-foundry-developers/foundry-vtt-types": "^13.346.0-beta.20250812191140",
     "svelte": "^4.2.20",
     "sirv-cli": "^2",
     "typedoc": "0.28.14",

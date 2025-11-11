@@ -13,11 +13,11 @@
     "skipLibCheck" : true,
 
     "types": [
-      "foundry-pf2e/foundry",
-      "@typhonjs-fvtt/runtime/types/fvtt-shim/pf2e"
+      "@league-of-foundry-developers/foundry-vtt-types",
+      "@typhonjs-fvtt/runtime/types/fvtt-shim/league"
     ],
   },
   "include" : [
-    "./.doc-gen/**/*.d.ts"
+    "./.doc-gen/**/*"
   ]
 }
