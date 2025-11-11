@@ -6,6 +6,7 @@ const symbolMap = new Map([
    ['__global.ApplicationHeaderButton', { caption: 'ApplicationHeaderButton', target: 'https://foundryvtt.com/api/types/foundry.ApplicationV1HeaderButton.html' }],
    ['__global.ApplicationOptions', { caption: 'ApplicationOptions', target: 'https://foundryvtt.com/api/interfaces/foundry.ApplicationV1Options.html' }],
    ['__global.foundry.abstract.Document', { caption: 'foundry.abstract.Document', target: 'https://foundryvtt.com/api/classes/foundry.abstract.Document.html' }],
+   ['__global.foundry.abstract.DataModel', { caption: 'DataModel', target: 'https://foundryvtt.com/api/classes/foundry.abstract.DataModel.html' }],
    ['__global.game', { caption: 'game', target: 'https://foundryvtt.com/api/classes/foundry.Game.html' }],
    ['__global.DocumentCollection', { caption: 'DocumentCollection', target: 'https://foundryvtt.com/api/classes/foundry.documents.abstract.DocumentCollection.html' }],
    ['__global.EnrichmentOptions', { caption: 'EnrichmentOptions', target: 'https://foundryvtt.com/api/interfaces/foundry.EnrichmentOptions.html' }],

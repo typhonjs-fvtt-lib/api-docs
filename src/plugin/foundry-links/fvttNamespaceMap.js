@@ -13,6 +13,15 @@ export const fvttNamespaceMap = new Map([
 
    ['FVTTCompendiumCollection', 'CompendiumCollection'],
 
+   ['fvtt.CustomFormGroup', 'CustomFormGroup'],
+   ['FVTTCustomFormGroup', 'CustomFormGroup'],
+
+   ['fvtt.CustomFormInput', 'CustomFormInput'],
+   ['FVTTCustomFormInput', 'CustomFormInput'],
+
+   ['fvtt.DataField', 'DataField'],
+   ['FVTTDataField', 'DataField'],
+
    ['fvtt.DataModel', 'DataModel'],
    ['FVTTDataModel', 'DataModel'],
 
